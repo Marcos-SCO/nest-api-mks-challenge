@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Projeto feito como desafio da empresa MkS 🚀
 
 ## 🔗 Api hospedada no link: 
@@ -69,6 +68,3 @@ Este repositório contém arquivos Docker necessários para executar uma API uti
     ```
 
 Certifique-se de ajustar as configurações de acordo com as necessidades específicas da sua aplicação, como variáveis de ambiente, portas expostas e dependências do contêiner.
-=======
-# mks-backend-challenge
->>>>>>> 14f4711 (Initial commit)
