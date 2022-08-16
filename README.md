@@ -12,11 +12,24 @@
 - PostgreSQL
 - TypeORM
 
+<<<<<<< HEAD
 ## Link para documentação da api e utilização no Swagger
+=======
+1. TypeScript
+2. Nest.js
+3. TypeORM
+4. Swagger
+5. Docker
+6. Redis
+>>>>>>> a53d646 (Update README.md)
 
 📚 Readme de <a href="https://github.com/Marcos-SCO/nest-api-mks-challenge/tree/main/api#readme">introdução da api</a> 
 
+<<<<<<< HEAD
 🔍 Mapeamento dos endpoints no <a href="https://app.swaggerhub.com/apis-docs/SKYP33_1/mks-nest-api-challenge/1.0.0" target="_blank">Swagger</a>
+=======
+A arquitetura deve ser composta de uma aplicação provendo uma API RESTful em JSON. Todas as ferramentas listadas anteriormente são mandatórias, além delas sinta-se livre para utilizar de qualquer outra technologia que te seja confortável. 
+>>>>>>> a53d646 (Update README.md)
 
 ## Postman
 
