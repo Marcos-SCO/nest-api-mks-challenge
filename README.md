@@ -21,7 +21,11 @@
 4. Swagger
 5. Docker
 6. Redis
+<<<<<<< HEAD
 >>>>>>> a53d646 (Update README.md)
+=======
+7. PostgreSQL
+>>>>>>> bfc3817 (Update README.md)
 
 📚 Readme de <a href="https://github.com/Marcos-SCO/nest-api-mks-challenge/tree/main/api#readme">introdução da api</a> 
 
