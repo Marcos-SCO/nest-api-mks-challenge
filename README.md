@@ -29,59 +29,16 @@
 
 📚 Readme de <a href="https://github.com/Marcos-SCO/nest-api-mks-challenge/tree/main/api#readme">introdução da api</a> 
 
-<<<<<<< HEAD
-🔍 Mapeamento dos endpoints no <a href="https://app.swaggerhub.com/apis-docs/SKYP33_1/mks-nest-api-challenge/1.0.0" target="_blank">Swagger</a>
-=======
-A arquitetura deve ser composta de uma aplicação provendo uma API RESTful em JSON. Todas as ferramentas listadas anteriormente são mandatórias, além delas sinta-se livre para utilizar de qualquer outra technologia que te seja confortável. 
->>>>>>> a53d646 (Update README.md)
+A arquitetura deve ser composta de uma aplicação provendo uma API RESTful em JSON, utilize do Redis como seu cache.
 
-## Postman
+OBS: Lembre-se de validar a informação tratada em cada endpoint.
 
-📬 Caso prefira, existe uma pasta na raiz do projeto chamada "postman" com um arquivo de importação, nele é possível utilizar os endpoints da api.
+Back-end
+---------------
 
-## Instruções de Uso para rodar localmente 🚀
+Engenharia de qualidade é saber utilizar da ferramenta certa para o trabalho certo, e seguir aprendendo constantemente sobre ela. Sabendo disso, sinta-se livre para mencionar no `README` quanto tempo de experiência você possui com cada uma delas, fazendo isso levaremos em consideração ao avaliar seu desafio. 
 
-Este repositório contém arquivos Docker necessários para executar uma API utilizando Node.js e PostgreSQL.
+Faça o deploy!
+---------------
 
-## Pré-requisitos 📋
-
-- Docker: Certifique-se de ter o Docker instalado em sua máquina. 
-
-- Caso seu sistema operacional seja windows, você pode rodar o projeto com o WSL ou docker desktop. Instale o Docker a partir do <a href="https://www.docker.com/products/docker-desktop" target="_blank">site oficial</a>.
-
-
-## Configuração do Arquivo .env 🛠️
-
-1. Dentro da pasta `/api`, localize o arquivo `.env.example`.
-
-2. Copie este arquivo e cole na mesma pasta, renomeando-o para `.env`.
-
-3. Abra o arquivo `.env` em um editor de texto.
-
-4. Substitua os valores das variáveis de ambiente conforme necessário para a configuração da sua aplicação.
-
-    - `APP_PORT`: Porta em que a aplicação estará escutando.
-    - `DATABASE_HOST`: Host do banco de dados PostgreSQL.
-    - `DATABASE_PORT`: Porta do banco de dados PostgreSQL.
-    - `DATABASE_NAME`: Nome do banco de dados PostgreSQL.
-    - `DATABASE_USERNAME`: Nome de usuário do banco de dados PostgreSQL.
-    - `DATABASE_PASSWORD`: Senha do banco de dados PostgreSQL.
-    - `JWT_SECRET`: Chave secreta para geração de tokens JWT.
-    - `REDIS_URL`: URL do servidor Redis.
-    - `REDIS_PASSWORD`: Senha do servidor Redis.
-
-5. Salve as alterações no arquivo.
-
-## Como Usar 🛠️
-
-1. Navegue até o diretório onde os arquivos estão localizados.
-
-2. Certifique-se de que sua aplicação está estruturada corretamente, incluindo todos os arquivos necessários, como `package.json`, `src` e outros, conforme esperado pelo Dockerfile e docker-compose.yml.
-
-3. Execute o seguinte comando para criar e iniciar os contêineres Docker:
-
-    ```
-    docker-compose up --build
-    ```
-
-Certifique-se de ajustar as configurações de acordo com as necessidades específicas da sua aplicação, como variáveis de ambiente, portas expostas e dependências do contêiner.
+Ao finalizar, faça o deploy no lugar que te for mais confortável (exemplo: Amazon EC2, Heroku, Netlify, Google AppEngine, etc)
