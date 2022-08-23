@@ -1,20 +1,17 @@
-# Projeto feito como desafio da empresa MkS 🚀
+Diretrizes do desafio
+===========================
 
-## 🔗 Api hospedada no link: 
+Por favor organize, design, teste, faça a documentação e deploy do seu código da forma como se ele fosse para produção, depois nos envie um link do repositório no Github.
 
-<a href="https://nest-api-mks-challenge.onrender.com" target="_blank">https://nest-api-mks-challenge.onrender.com</a>
+Tarefa (funcional)
+---------------
 
-### Tecnologias Utilizadas 💻
+1. Desenvolva um sistema de autenticação.
+2. Você deve construir uma CRUD de um catálogo de filmes. Todos os endpoints dessa CRUD só devem ser consumidos por um usuário autenticado.
 
-- Node.js
-- Typescript
-- Docker
-- PostgreSQL
-- TypeORM
+Ferramentas requeridas
+---------------
 
-<<<<<<< HEAD
-## Link para documentação da api e utilização no Swagger
-=======
 1. TypeScript
 2. Nest.js
 3. TypeORM
