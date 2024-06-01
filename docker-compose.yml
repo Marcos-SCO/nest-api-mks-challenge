@@ -1,0 +1,24 @@
+services:
+  postgres:
+    container_name: postgres-mks-challenge
+    image: postgres
+    environment:
+      POSTGRE_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: db-postgres-mks-challenge
+    volumes:
+      - ./data:/data/postgres
+    ports:
+      - "5432:5432"
+
+  # app:
+  #   build: 
+  #     context: .
+  #     dockerfile: Dockerfile
+  #   environment:
+  #     APP_NAME: node-nest-api-mks-challenge
+  #     PORT: 5002
+  #   volumes:
+  #     - ./api/src:/api/src
+  #   depends_on:
+  #     - postgres
