@@ -8,6 +8,9 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import configuration from './config/configuration';
 
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { UsersModule } from './users/users.module';
+import { AuthModule } from './auth/auth.module';
+import { RedisModule } from './redis/redis.module';
 
 @Module({
   imports: [
@@ -39,8 +42,14 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       }),
       inject: [ConfigService]
     }),
+  
+    MovieModule,
 
-    MovieModule
+    UsersModule,
+
+    AuthModule,
+
+    RedisModule,
   ],
 
   controllers: [AppController],
