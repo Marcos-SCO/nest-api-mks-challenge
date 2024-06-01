@@ -93,6 +93,7 @@ export class UsersController {
     return { 'message': 'Item was deleted successfully', };
   }
 
+  @UseGuards(JwtAuthGuard)
   @Post('factory/generate')
   public async generateUsers() {
     const count = 30; // Number of users to generate
