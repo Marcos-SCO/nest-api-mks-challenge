@@ -1,6 +1,7 @@
-import { BadRequestException, Controller, HttpException, HttpStatus, Logger } from '@nestjs/common';
+import { BadRequestException, Controller, HttpException, HttpStatus, Logger, NotFoundException } from '@nestjs/common';
 import { MovieService } from './movie.service';
-import { Body, Delete, Get, Param, Post, Put, Query } from '@nestjs/common/decorators';
+import { Body, Delete, Get, Param, Post, Put, Query, UseFilters } from '@nestjs/common/decorators';
+
 import { MovieDto } from './movie.dto';
 
 @Controller('movies')
@@ -17,13 +18,7 @@ export class MovieController {
 
     const foundResults = results && results.length > 0;
 
-    if (!foundResults) {
-
-      throw new HttpException({
-        status: HttpStatus.FORBIDDEN,
-        error: 'No results found...',
-      }, HttpStatus.NOT_FOUND)
-    }
+    if (!foundResults) throw new NotFoundException('No results found...');
 
     return results;
   }
@@ -36,13 +31,7 @@ export class MovieController {
 
     const results = await this.movieService.getOne(paramId);;
 
-    if (!results) {
-
-      throw new HttpException({
-        status: HttpStatus.FORBIDDEN,
-        error: 'No results found...',
-      }, HttpStatus.NOT_FOUND)
-    }
+    if (!results) throw new NotFoundException(`Movie with Id ${paramId} not found`);
 
     return results;
   }
@@ -62,7 +51,7 @@ export class MovieController {
 
     return results;
   }
-  
+
   @Put()
   public async update(@Body() itemBody) {
     const results: any = await this.movieService.updateItem(itemBody);
@@ -95,8 +84,6 @@ export class MovieController {
       }, errorStatus)
     }
 
-    return {
-      'message': 'Item was deleted successfully',
-    };
+    return { 'message': 'Item was deleted successfully', };
   }
 }

@@ -1,4 +1,4 @@
-import { HttpStatus, Injectable } from '@nestjs/common';
+import { BadRequestException, HttpStatus, Injectable, NotAcceptableException, NotFoundException } from '@nestjs/common';
 import { Logger } from '@nestjs/common/services';
 import { Movie } from 'src/model/movie.entity';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -30,6 +30,7 @@ export class MovieService {
     if (!idValue) return this.logger.error('Id param is missing...');
 
     this.logger.debug(`Find movie with id: ${idValue}`);
+
     return await this.repo.findOne({
       where: { id: idValue }
     });
@@ -52,13 +53,13 @@ export class MovieService {
     const movieName = movie?.name;
     const movieAuthor = movie?.author;
 
-    if (!movieName) return { 'error': true, 'message': 'Movie name param is missing' };
+    if (!movieName) throw new BadRequestException('Movie name param is missing');
 
-    if (!movieAuthor) return { 'error': true, 'message': 'Movie author param is missing' };
+    if (!movieAuthor) throw new BadRequestException('Movie author param is missing');
 
     const haveItemName = await this.isItemDuplicate({ name: movieName, author: movieAuthor });
 
-    if (haveItemName) return { 'error': true, 'message': 'Item already exists' };
+    if (haveItemName) throw new BadRequestException('Item already exists');
 
     try {
 
@@ -68,7 +69,7 @@ export class MovieService {
 
     } catch (error) {
 
-      return { 'error': true, 'message': error.message }
+      throw new BadRequestException('Failed to save movie');
     }
 
   }
@@ -78,24 +79,24 @@ export class MovieService {
 
     const movieId = updateData?.id;
 
-    if (!movieId) return { 'error': true, 'message': 'Movie id param is missing' };
+    if (!movieId) throw new BadRequestException(`Movie id param is missing`);
 
     const existingMovie = await this.repo.findOne({ where: { id: movieId } });
 
-    if (!existingMovie) return { 'status': HttpStatus.NOT_FOUND, 'error': true, 'message': `Item with id ${movieId} don\'t exists` };
+    if (!existingMovie) throw new NotFoundException(`Item with id ${movieId} don\'t exists`);
 
     const updateMovie = Object.assign(existingMovie, updateData);
     updateMovie.id = +movieId;
 
     try {
-      
+
       const updatedItem = await this.repo.save(updateMovie);
 
       return updatedItem;
 
     } catch (error) {
 
-      return { 'status': error.status, 'error': true, 'message': error.message }
+      throw new BadRequestException('Failed to update movie');
     }
 
   }
@@ -107,7 +108,7 @@ export class MovieService {
       const errorMessage = 'Id param is missing...';
       this.logger.error(errorMessage);
 
-      return { 'status': HttpStatus.NOT_ACCEPTABLE, 'error': true, 'message': errorMessage }
+      throw new NotAcceptableException(errorMessage);
     }
 
     this.logger.debug(`Deleting Movie with id : ${idValue}`);
@@ -118,7 +119,7 @@ export class MovieService {
       const itemExistsError = `item id ${idValue} don\'t exists`;
       this.logger.error(itemExistsError);
 
-      return { 'status': HttpStatus.NOT_FOUND, 'error': true, 'message': itemExistsError };
+      throw new NotFoundException(itemExistsError);
     }
 
     try {
@@ -126,7 +127,8 @@ export class MovieService {
       return await this.repo.delete(idValue);
 
     } catch (error) {
-      return { 'error': true, 'message': error.message }
+
+      throw new BadRequestException(`Failed to delete with id: ${idValue} movie`);
     }
   }
 
