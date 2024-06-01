@@ -5,11 +5,13 @@ import { JwtAuthGuard } from 'src/auth/jwt-auth.guard'; // Import the JwtAuthGua
 import { UsersService } from './users.service';
 import { User } from 'src/model/user.entity';
 
+import { UsersFactoryService } from './users.factory.service';
+
 @Controller('users')
 export class UsersController {
   logger = new Logger(UsersController.name);
 
-  constructor(private readonly usersService: UsersService) { }
+  constructor(private readonly usersService: UsersService, private usersFactoryService: UsersFactoryService) { }
 
   @Post()
   public async store(@Body() user: User): Promise<User> {
@@ -89,5 +91,14 @@ export class UsersController {
     }
 
     return { 'message': 'Item was deleted successfully', };
+  }
+
+  @Post('factory/generate')
+  public async generateUsers() {
+    const count = 30; // Number of users to generate
+
+    const createdUsersData = await this.usersFactoryService.generateUsers(count);
+
+    return { message: `${count} users generated successfully`, data: createdUsersData };
   }
 }
