@@ -5,12 +5,14 @@ import { Body, Delete, Get, Param, Post, Put, Query, UseFilters, UseGuards } fro
 import { MovieDto } from './movie.dto';
 import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 
+import { MovieFactoryService } from './movie.factory.service';
+
 @Controller('movies')
 @UseGuards(JwtAuthGuard)
 export class MovieController {
   logger = new Logger(MovieController.name);
 
-  constructor(private movieService: MovieService) { }
+  constructor(private movieService: MovieService, private movieFactoryService: MovieFactoryService) { }
 
   @Get('/')
   public async index(@Query('page') page: number = 1, @Query('limit') limit: number = 10) {
@@ -87,5 +89,13 @@ export class MovieController {
     }
 
     return { 'message': 'Item was deleted successfully', };
+  }
+
+  @Post('factory/generate')
+  public async generateMovies() {
+
+    const generatedData = await this.movieFactoryService.generateMovies();
+
+    return { message: `movies factory generated successfully`, data: generatedData };
   }
 }
