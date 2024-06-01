@@ -1,10 +1,12 @@
 import { BadRequestException, Controller, HttpException, HttpStatus, Logger, NotFoundException } from '@nestjs/common';
 import { MovieService } from './movie.service';
-import { Body, Delete, Get, Param, Post, Put, Query, UseFilters } from '@nestjs/common/decorators';
+import { Body, Delete, Get, Param, Post, Put, Query, UseFilters, UseGuards } from '@nestjs/common/decorators';
 
 import { MovieDto } from './movie.dto';
+import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 
 @Controller('movies')
+@UseGuards(JwtAuthGuard)
 export class MovieController {
   logger = new Logger(MovieController.name);
 

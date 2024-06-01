@@ -12,12 +12,12 @@ export class Movie {
   author: string;
 
   @CreateDateColumn({type: 'timestamptz', default: () => 'CURRENT_TIMESTAMP'})
-  release_date_time: Date
+  release_date_time: Date;
 
   @CreateDateColumn({type: 'timestamptz', default: () => 'CURRENT_TIMESTAMP'})
-  created_at: Date
+  created_at: Date;
   
   @CreateDateColumn({type: 'timestamptz', default: () => 'CURRENT_TIMESTAMP', onUpdate: "CURRENT_TIMESTAMP"})
-  updated_at: Date
+  updated_at: Date;
 
 }
