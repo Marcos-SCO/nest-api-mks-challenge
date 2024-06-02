@@ -4,6 +4,8 @@ import { Repository, EntityManager } from 'typeorm';
 import { User } from '../model/user.entity';
 import { faker } from '@faker-js/faker';
 
+import * as bcrypt from 'bcrypt';
+
 @Injectable()
 export class UsersFactoryService {
   constructor(
@@ -15,10 +17,12 @@ export class UsersFactoryService {
   async getUsersArray(count: number) {
     const users: any = [];
 
+    const userHashedPassword = await bcrypt.hash('password', 10);
+
     for (let i = 0; i < count; i++) {
       users.push({
         username: faker.internet.userName(),
-        password: 'password',
+        password: userHashedPassword,
       });
     }
 
