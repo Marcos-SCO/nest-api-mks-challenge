@@ -13,7 +13,7 @@ async function bootstrap() {
 
   const modifiedHostUrl = hostUrl.replace('[::1]', 'localhost');
 
-  console.log('Application is running on: ' + modifiedHostUrl);
+  console.log('Application is running on port: ' + port);
 
   // Ping server function
   async function pingServer() {
