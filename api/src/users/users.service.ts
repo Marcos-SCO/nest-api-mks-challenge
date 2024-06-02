@@ -60,7 +60,7 @@ export class UsersService {
     });
   }
 
-  async getOne(id: number): Promise<User> {
+  async getCachedUser(id: number): Promise<User> {
     const cachedUser = await this.redis.get(`user:${id}`);
 
     if (cachedUser) {
@@ -70,6 +70,23 @@ export class UsersService {
     const user = await this.repo.findOne({ where: { id } });
 
     await this.redis.set(`user:${id}`, JSON.stringify(user));
+
+    return user;
+  }
+  
+  async getOne(id: number): Promise<any> {
+
+    const idValue = +id;
+
+    if (!idValue) {
+      this.logger.error('Id param is missing...');
+
+      throw new BadRequestException(`User id param is missing`);
+    }
+
+    this.logger.debug(`Find movie with id: ${idValue}`);
+
+    const user = await this.repo.findOne({ where: { id } });
 
     return user;
   }
