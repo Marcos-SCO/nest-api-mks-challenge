@@ -5,7 +5,7 @@ Esta API permite gerenciar usuários e filmes, fornecendo endpoints para criar, 
 
 # Swagger
 
-🔍 Mapeamento dos endpoints: https://app.swaggerhub.com/apis-docs/SKYP33_1/mks-nest-api-challenge/1.0.0
+🔍 Mapeamento dos <a href="https://app.swaggerhub.com/apis-docs/SKYP33_1/mks-nest-api-challenge/1.0.0" target="_blank">endpoints</a>
 
 ## Visão geral da API
 
@@ -36,7 +36,7 @@ Para usar a maioria dos endpoints da API, você precisa estar autenticado. A aut
   - Exemplo de corpo da solicitação:
     ```json
     {
-      "username": "Emily.Lehner",
+      "username": "marcos_sco",
       "password": "password"
     }
     ```

@@ -1,7 +1,8 @@
 # Projeto feito como desafio da empresa MkS 🚀
 
 ## 🔗 Api hospedada no link: 
-https://nest-api-mks-challenge.onrender.com
+
+<a href="https://nest-api-mks-challenge.onrender.com" target="_blank">https://nest-api-mks-challenge.onrender.com</a>
 
 ### Tecnologias Utilizadas 💻
 
@@ -13,9 +14,9 @@ https://nest-api-mks-challenge.onrender.com
 
 ## Link para documentação da api e utilização no Swagger
 
-📚 Introdução: 
+📚 Readme de <a href="https://github.com/Marcos-SCO/nest-api-mks-challenge/tree/main/api#readme">introdução da api</a> 
 
-🔍 Mapeamento dos endpoints no Swagger: https://app.swaggerhub.com/apis-docs/SKYP33_1/mks-nest-api-challenge/1.0.0
+🔍 Mapeamento dos endpoints no <a href="https://app.swaggerhub.com/apis-docs/SKYP33_1/mks-nest-api-challenge/1.0.0" target="_blank">Swagger</a>
 
 ## Postman
 
@@ -29,7 +30,7 @@ Este repositório contém arquivos Docker necessários para executar uma API uti
 
 - Docker: Certifique-se de ter o Docker instalado em sua máquina. 
 
-- Caso seu sistema operacional seja windows, você pode rodar o projeto com o WSL ou docker desktop. Instale o Docker a partir do [site oficial](https://www.docker.com/products/docker-desktop).
+- Caso seu sistema operacional seja windows, você pode rodar o projeto com o WSL ou docker desktop. Instale o Docker a partir do <a href="https://www.docker.com/products/docker-desktop" target="_blank">site oficial</a>.
 
 
 ## Configuração do Arquivo .env 🛠️
