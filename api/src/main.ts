@@ -13,13 +13,13 @@ async function bootstrap() {
 
   const modifiedHostUrl = hostUrl.replace('[::1]', 'localhost');
 
-  console.log('Application is running on port: ' + port);
+  const url =
+    process.env.APP_PING_HOST || modifiedHostUrl;
+
+  console.log('Application is running on : ' + url);
 
   // Ping server function
   async function pingServer() {
-
-    const url =
-      process.env.APP_PING_HOST || modifiedHostUrl;
 
     try {
       const response = await axios.get(url);
